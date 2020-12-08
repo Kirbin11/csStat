@@ -71,17 +71,17 @@ express()
       if (mapsStat.length > 6) { 
         console.log('privet')
         var final = countBets(goodMatches, mapsStat);
-       // res.render("index.hbs", {
-       //   Matches: final
-       // });
+        res.render("index.hbs", {
+          Matches: final
+        });
        
       };
       console.log('passed');
       setTimeout(timeoutFunc, 5000);
     }
     
-    //timeoutFunc();
+    timeoutFunc();
     ///////get 
-    res.send('hello');
+ 
   })
   .listen(PORT, () => console.log(`Listening on ${ PORT }`))
