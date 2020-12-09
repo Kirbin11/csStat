@@ -51,6 +51,9 @@ express()
 //.use(async (req, res) => {
 // })
 .get('/', async (req, res) => {
+  res.send('hello');
+})
+.get('/bets', async (req, res) => {
    
     
   const matches = await HLTV.getMatches();
