@@ -64,20 +64,21 @@ express()
     var stat = await mapStats.getFinalStatForMap(element);
     mapsStat.push({oneMap : element, stats : stat});
     }, timeout);
-    timeout+=5000;
+    timeout+=4000;
     });
 
     function timeoutFunc() {
+      var vse = false;
       if (mapsStat.length > 6) { 
         console.log('privet')
         var final = countBets(goodMatches, mapsStat);
         res.render("index.hbs", {
           Matches: final
         });
-       
+        vse = true;
       };
       console.log('passed');
-      setTimeout(timeoutFunc, 5000);
+      if (!vse) { setTimeout(timeoutFunc, 5000); }
     }
     
     timeoutFunc();
