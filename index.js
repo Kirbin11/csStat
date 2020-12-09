@@ -23,14 +23,14 @@ function countBets(goodMatches, mapsStat){
         var team2stat = map.stats.find(e=> { return e.teamName === team2});
         var mapBets = '';
         if((team1stat != undefined) && (team2stat != undefined)) {
-          if((team1stat.winrateCT - team2stat.winrateT) >= 10)
+          if((team1stat.winrateCT - team2stat.winrateT) >= 20)
           mapBets += team1 + ' wins CT / ';
-          else if ((team1stat.winrateCT - team2stat.winrateT) <= -10)
+          else if ((team1stat.winrateCT - team2stat.winrateT) <= -20)
           mapBets += team2 + ' wins T / ';
   
-          if((team1stat.winrateT - team2stat.winrateCT) >= 10)
+          if((team1stat.winrateT - team2stat.winrateCT) >= 20)
           mapBets += team2 + ' wins CT / ';
-          else if((team1stat.winrateT - team2stat.winrateCT) <= -10)
+          else if((team1stat.winrateT - team2stat.winrateCT) <= -20)
           mapBets += team1 + ' wins T / ';
         }
         else {
@@ -75,6 +75,7 @@ express()
         res.render("index.hbs", {
           Matches: final
         });
+      
         vse = true;
       };
       console.log('passed');
