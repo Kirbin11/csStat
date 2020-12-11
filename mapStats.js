@@ -32,7 +32,7 @@ let date_ob = new Date();
 function getMapStats(map, side){
 return __awaiter(this, void 0, void 0, function* () {
   const url = `https://www.hltv.org/stats/teams/pistols?startDate=` + getMonthsBack() +
-  '&endDate=' + getCurrentDate() + '&maps='+ map + '&minMapCount=4&side=' + side + '&rankingFilter=Top30';
+  '&endDate=' + getCurrentDate() + '&maps='+ map + '&minMapCount=4&side=' + side;
   try {
       const body = yield (yield node_fetch_1.default(url, {
           headers: { 'User-Agent': 'node-fetch' },

@@ -23,15 +23,20 @@ function countBets(goodMatches, mapsStat){
         var team2stat = map.stats.find(e=> { return e.teamName === team2});
         var mapBets = '';
         if((team1stat != undefined) && (team2stat != undefined)) {
-          if((team1stat.winrateCT - team2stat.winrateT) >= 20)
-          mapBets += team1 + ' wins CT / ';
-          else if ((team1stat.winrateCT - team2stat.winrateT) <= -20)
-          mapBets += team2 + ' wins T / ';
+          if((team1stat.winrateCT - team2stat.winrateT) >= 20){
+            var a = team1stat.winrateCT - team2stat.winrateT;
+          mapBets += team1 + ' wins CT / ';}
+          if ((team1stat.winrateCT - team2stat.winrateT) <= -20){
+            var a = team1stat.winrateCT - team2stat.winrateT;
+          mapBets += team2 + ' wins T / ';}
   
-          if((team1stat.winrateT - team2stat.winrateCT) >= 20)
-          mapBets += team2 + ' wins CT / ';
-          else if((team1stat.winrateT - team2stat.winrateCT) <= -20)
-          mapBets += team1 + ' wins T / ';
+          if((team1stat.winrateT - team2stat.winrateCT) >= 20){
+            var a = team1stat.winrateT - team2stat.winrateCT;
+          mapBets += team1 + ' wins T / '; }
+           
+          if((team1stat.winrateT - team2stat.winrateCT) <= -20){
+            var a = team1stat.winrateT - team2stat.winrateCT;
+          mapBets += team2 + ' wins CT / '; }
         }
         else {
           mapBets += 'no bets found';
