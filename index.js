@@ -87,7 +87,7 @@ express()
         vse = true;
       };
       console.log('passed');
-      if (!vse) { setTimeout(timeoutFunc, 4000); }
+      if (!vse) { setTimeout(timeoutFunc, 3625); }
     }
     
     timeoutFunc();
