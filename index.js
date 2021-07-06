@@ -7,7 +7,7 @@ const mapStats = require("./mapStats");
 const HLTV = require('hltv-api').default;
 const CSMaps = ['de_dust2', 'de_mirage','de_inferno','de_nuke',
                  'de_train', 'de_overpass',
-                'de_vertigo'];
+                'de_vertigo', 'de_ancient'];
 
 
 hbs.registerPartials(__dirname + "/views/partials");
@@ -77,7 +77,7 @@ express()
 
     function timeoutFunc() {
       var vse = false;
-      if (mapsStat.length > 6) { 
+      if (mapsStat.length > 7) { 
         console.log('privet')
         var final = countBets(goodMatches, mapsStat);
         res.render("index.hbs", {
