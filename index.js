@@ -62,9 +62,9 @@ express()
    
     
   const matches = await HLTV.getMatches();
-    var goodMatches = matches.filter(e => { 
-    if (e.stars > 0 && e.teams[0].name != '' && e.teams[1].name != '') return true
-    else return false });
+    var goodMatches = matches; //.filter(e => { 
+   // if (e.stars > 0 && e.teams[0].name != '' && e.teams[1].name != '') return true
+   // else return false });
     const mapsStat = [];
     var timeout = 0;
     CSMaps.forEach(element => {

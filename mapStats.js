@@ -54,9 +54,9 @@ return __awaiter(this, void 0, void 0, function* () {
           teams[teams.length] = response;
          
       });
-      if (!teams.length) {
-          throw new Error('There are no matches available, something went wrong. Please contact the library maintainer on https://github.com/dajk/hltv-api');
-      }
+    //   if (!teams.length) {
+    //       throw new Error('There are no matches available, something went wrong. Please contact the library maintainer on https://github.com/dajk/hltv-api');
+    //   }
       return teams;
   }
   catch (error) {
