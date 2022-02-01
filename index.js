@@ -8,6 +8,7 @@ const HLTV = require('hltv-api').default;
 const CSMaps = ['de_dust2', 'de_mirage','de_inferno','de_nuke',
                  'de_train', 'de_overpass',
                 'de_vertigo', 'de_ancient'];
+var final = [];
 
 
 hbs.registerPartials(__dirname + "/views/partials");
@@ -59,8 +60,9 @@ express()
   res.send('hello');
 })
 .get('/bets', async (req, res) => {
-   
-    
+
+        res.render("initial.hbs");
+
   const matches = await HLTV.getMatches();
     var goodMatches = matches.filter(e => { 
     if (e.stars > 0 && e.teams[0].name != '' && e.teams[1].name != '') return true
@@ -72,26 +74,30 @@ express()
     var stat = await mapStats.getFinalStatForMap(element);
     mapsStat.push({oneMap : element, stats : stat});
     }, timeout);
-    timeout+=4000;
+    timeout+=5000;
     });
 
     function timeoutFunc() {
       var vse = false;
       if (mapsStat.length > 7) { 
         console.log('privet')
-        var final = countBets(goodMatches, mapsStat);
-        res.render("index.hbs", {
-          Matches: final
-        });
+        
+        final = countBets(goodMatches, mapsStat);
+        
       
         vse = true;
       };
       console.log('passed');
-      if (!vse) { setTimeout(timeoutFunc, 3625); }
+      if (!vse) { setTimeout(timeoutFunc, 5000); }
     }
     
     timeoutFunc();
-    ///////get 
+    /////get 
  
+  })
+  .post("/matches", (req, res) => {
+    res.render("index.hbs", {
+            Matches: final
+          });
   })
   .listen(PORT, () => console.log(`Listening on ${ PORT }`))

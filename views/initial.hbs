@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>bets</title>
+    <meta charset="utf-8" />
+</head>
+<body>
+
+HELLOOOOO
+<br />
+<br />
+<br />
+<form action = "/matches" method="post" >
+<button type="submit" name = "submit" disabled>OKAY LETS GO</button>
+</form>
+<br />
+<div name="text">button</div><div name="timer">45</div>
+
+
+<script>
+    
+    window.onload = function(){
+    document.getElementsByName("text")[0].innerHTML = "button will enable in ";
+    var seconds_left = 45;
+ var interval = setInterval(function() {
+ document.getElementsByName('timer')[0].innerHTML = --seconds_left;
+
+ if (seconds_left <= 0)
+ {
+     document.getElementsByName('timer')[0].innerHTML = 'READY';
+     var element = document.getElementsByName("submit")[0];
+     element.disabled = false;
+     clearInterval(interval);
+ }
+ }, 1000);
+ 
+}
+</script>
+</body>
+</html>
