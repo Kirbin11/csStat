@@ -62,7 +62,6 @@ express()
 .get('/bets', async (req, res) => {
 
         res.render("initial.hbs");
-
   const matches = await HLTV.getMatches();
     var goodMatches = matches.filter(e => { 
     if (e.stars > 0 && e.teams[0].name != '' && e.teams[1].name != '') return true

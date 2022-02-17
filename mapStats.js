@@ -35,7 +35,7 @@ return __awaiter(this, void 0, void 0, function* () {
   '&endDate=' + getCurrentDate() + '&maps='+ map + '&minMapCount=4&side=' + side;
   try {
       const body = yield (yield node_fetch_1.default(url, {
-          headers: { 'User-Agent': 'node-fetch' },
+          headers: { 'User-Agent': '' },
       })).text();
       const $ = cheerio_1.default.load(body, {
           normalizeWhitespace: true,
