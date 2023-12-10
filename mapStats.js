@@ -37,6 +37,7 @@ return __awaiter(this, void 0, void 0, function* () {
       const body = yield (yield node_fetch_1.default(url, {
           headers: { 'User-Agent': '' },
       })).text();
+      console.log(body)
       const $ = cheerio_1.default.load(body, {
           normalizeWhitespace: true,
       });
